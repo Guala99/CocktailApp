@@ -21,7 +21,18 @@ class DetailCocktailViewController: UIViewController {
         return tableView
     }()
     
+    let loadingIndicator = UIActivityIndicatorView()
+    
     var cocktailModel : Cocktail?
+    
+    let doneButton : UIButton = {
+        let but = UIButton()
+        but.setTitle("Done", for: .normal)
+        but.setTitleColor(.black, for: .normal)
+        but.translatesAutoresizingMaskIntoConstraints = false
+        but.addTarget(self, action: #selector(dismissController), for: .touchUpInside)
+        return but
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,10 +45,20 @@ class DetailCocktailViewController: UIViewController {
         tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        tableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 40).isActive = true
+        
+        self.view.addSubview(doneButton)
+        doneButton.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        doneButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        doneButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        
+        self.view.addSubview(loadingIndicator)
+        loadingIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        loadingIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
     
     func configureDetailControllerWith(cocktailString: String) {
+        loadingIndicator.startAnimating()
         makeFetchingRequest(with: cocktailString)
     }
     
@@ -61,10 +82,15 @@ class DetailCocktailViewController: UIViewController {
             self.cocktailModel = model
             
             DispatchQueue.main.async {
+                self.loadingIndicator.stopAnimating()
                 self.tableView.reloadData()
             }
             
         }.resume()
+    }
+    
+    @objc fileprivate func dismissController() {
+        self.dismiss(animated: true)
     }
 }
 
