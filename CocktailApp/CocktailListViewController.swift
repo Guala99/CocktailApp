@@ -14,6 +14,11 @@ class CocktailListViewController: UIViewController {
         "Vodka",
         "Gin",
         "Champagne",
+        "Wine",
+        "Rum",
+        "Prosecco",
+        "Beer",
+        "Whiskey"
     ]
     
     let cocktailID = "cocktailID"

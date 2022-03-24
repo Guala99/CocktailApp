@@ -7,6 +7,7 @@
 
 import UIKit
 
+// recreate the same model structure as the json we get from the API in order to convert id perfectly with Codable protocol
 struct Cocktail: Codable{
     let ingredients: [Ingredient]?
 }
