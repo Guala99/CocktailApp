@@ -9,37 +9,36 @@ import UIKit
 
 class CocktailListViewController: UIViewController {
     
-    var cocktailsModel: [String] = ["Margarita", "Mojito", "Tequila"]
+    var cocktailsModel: [String] = [
+        "Tequila",
+        "Vodka",
+        "Gin",
+        "Champagne",
+    ]
+    
+    let cocktailID = "cocktailID"
     
     lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cocktailID)
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cocktailID")
         return tableView
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI()
-        makeFetchingRequest()
     }
     
     func setUpUI(){
-        
         self.view.addSubview(tableView)
         tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
     }
-
-    
-    func makeFetchingRequest() {
-        
-    }
-
 }
 
 extension CocktailListViewController : UITableViewDelegate, UITableViewDataSource {
@@ -48,7 +47,7 @@ extension CocktailListViewController : UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: "cocktailID")
+        let cell = UITableViewCell(style: .default, reuseIdentifier: cocktailID)
         cell.textLabel?.text = cocktailsModel[indexPath.item]
         return cell
     }
@@ -56,5 +55,12 @@ extension CocktailListViewController : UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "Choose what you want to drink"
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let detailVC = DetailCocktailViewController()
+        detailVC.configureDetailControllerWith(cocktailString: cocktailsModel[indexPath.item])
+        self.present(detailVC, animated: true)
+        
+    }
 }
-

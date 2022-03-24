@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2348496D27EBDE2700772634 /* DetailCocktailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2348496C27EBDE2700772634 /* DetailCocktailViewController.swift */; };
+		2348496F27EBE54300772634 /* CocktailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2348496E27EBE54300772634 /* CocktailModel.swift */; };
 		23CE695F27EB2E2600A0E18D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CE695E27EB2E2600A0E18D /* AppDelegate.swift */; };
 		23CE696127EB2E2600A0E18D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CE696027EB2E2600A0E18D /* SceneDelegate.swift */; };
 		23CE696327EB2E2600A0E18D /* CocktailListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CE696227EB2E2600A0E18D /* CocktailListViewController.swift */; };
@@ -36,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2348496C27EBDE2700772634 /* DetailCocktailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCocktailViewController.swift; sourceTree = "<group>"; };
+		2348496E27EBE54300772634 /* CocktailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailModel.swift; sourceTree = "<group>"; };
 		23CE695B27EB2E2600A0E18D /* CocktailApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CocktailApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23CE695E27EB2E2600A0E18D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23CE696027EB2E2600A0E18D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -101,7 +105,9 @@
 			children = (
 				23CE695E27EB2E2600A0E18D /* AppDelegate.swift */,
 				23CE696027EB2E2600A0E18D /* SceneDelegate.swift */,
+				2348496E27EBE54300772634 /* CocktailModel.swift */,
 				23CE696227EB2E2600A0E18D /* CocktailListViewController.swift */,
+				2348496C27EBDE2700772634 /* DetailCocktailViewController.swift */,
 				23CE696427EB2E2600A0E18D /* Main.storyboard */,
 				23CE696727EB2E2800A0E18D /* Assets.xcassets */,
 				23CE696927EB2E2800A0E18D /* LaunchScreen.storyboard */,
@@ -258,8 +264,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2348496F27EBE54300772634 /* CocktailModel.swift in Sources */,
 				23CE696327EB2E2600A0E18D /* CocktailListViewController.swift in Sources */,
 				23CE695F27EB2E2600A0E18D /* AppDelegate.swift in Sources */,
+				2348496D27EBDE2700772634 /* DetailCocktailViewController.swift in Sources */,
 				23CE696127EB2E2600A0E18D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
